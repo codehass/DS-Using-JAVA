@@ -1,6 +1,5 @@
 package org.example;
-import javax.swing.plaf.synth.SynthInternalFrameUI;
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class ArrayInput {

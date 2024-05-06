@@ -1,5 +1,7 @@
 package TreeDataStructure;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 class Node {
@@ -36,7 +38,9 @@ public class BinaryTree {
 
     void display(){
         //preorderPrint(root);
-        inorderPrint(root);
+        //inorderPrint(root);
+        //postorderPrint(root);
+        levelOrderPrint(root);
     }
 
     void preorderPrint(Node root) {
@@ -56,5 +60,35 @@ public class BinaryTree {
         inorderPrint(root.left);
         System.out.println(root.data);
         inorderPrint(root.right);
+    }
+
+    //In postorderPrint: we print the left tree, then the right tree, then the root
+    void postorderPrint(Node root) {
+        if(root == null){
+            return;
+        }
+        inorderPrint(root.left);
+        inorderPrint(root.right);
+        System.out.println(root.data);
+    }
+
+    //Breath first traversal
+    // Level Order Print: we print all the elements in the same level then we go to the next level
+    // we use Queue
+    void levelOrderPrint(Node root) {
+        Queue<Node> q = new LinkedList<>();
+
+        q.offer(root);
+
+        while (!q.isEmpty()){
+            Node f = q.poll();
+            System.out.println(f.data);
+            if(f.left != null){
+                q.offer(f.left);
+            }
+            if(f.right != null){
+                q.offer(f.right);
+            }
+        }
     }
 }

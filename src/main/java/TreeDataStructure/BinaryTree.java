@@ -33,4 +33,17 @@ public class BinaryTree {
 
         return n;
     }
+
+    void display(){
+        preorderPrint(root);
+    }
+
+    void preorderPrint(Node root) {
+        if(root == null){
+            return;
+        }
+        System.out.println(root.data);
+        preorderPrint(root.left);
+        preorderPrint(root.right);
+    }
 }

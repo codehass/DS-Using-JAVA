@@ -35,7 +35,8 @@ public class BinaryTree {
     }
 
     void display(){
-        preorderPrint(root);
+        //preorderPrint(root);
+        inorderPrint(root);
     }
 
     void preorderPrint(Node root) {
@@ -45,5 +46,15 @@ public class BinaryTree {
         System.out.println(root.data);
         preorderPrint(root.left);
         preorderPrint(root.right);
+    }
+
+    //In-order we print the left tree then the root then the right tree
+    void inorderPrint(Node root) {
+        if(root == null){
+            return;
+        }
+        inorderPrint(root.left);
+        System.out.println(root.data);
+        inorderPrint(root.right);
     }
 }

@@ -4,16 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-class Node {
-    int data;
-    Node left;
-    Node right;
-
-    Node(int d){
-        this.data = d;
-        this.left = this.right = null;
-    }
-}
 public class BinaryTree {
     Node root;
 

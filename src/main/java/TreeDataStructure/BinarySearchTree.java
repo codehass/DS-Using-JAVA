@@ -65,4 +65,44 @@ public class BinarySearchTree {
         }
         return searchFn(root.right, key);
     }
+
+    void removeKey(int key){
+        remove(this.root,key);
+    }
+
+    Node remove(Node root, int key){
+        //base case
+        if(root == null){
+            return null;
+        }
+
+        //rec case
+        if(key < root.data){
+           root.left = remove(root.left, key);
+        }else if(key > root.data){
+            root.right = remove(root.right, key);
+        }else{
+            // this is the node to be deleted
+            //case 1 no children
+            if(root.left == null && root.right == null){
+                return null;
+            }
+            // case 2
+            else if(root.left == null){
+                return root.right;
+            }
+            else if(root.right == null){
+                return root.left;
+            }
+            // case 3 (has 2 children
+            //find the max node in left subtree
+            Node temp = root.left;
+            while (temp.right != null){
+                temp = temp.right;
+            }
+            root.data = temp.data;
+            root.left = remove(root.left, temp.data);
+        }
+        return root;
+    }
 }
